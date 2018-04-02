@@ -2,7 +2,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
-const token = "NDI5OTcxOTQ1NTcyOTI1NDQx.DaJaIw.eD9as2EiJZcAknH5xtUEZSmaXu8";
 const prefix = "!";
 bot.commands = new Discord.Collection();
 
