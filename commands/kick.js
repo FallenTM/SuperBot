@@ -22,11 +22,11 @@ module.exports.run = async (bot, message, args) => {
   .addField("Time", message.createdAt)
   .addField("Reason", reason)
 
+  message.author.send("You kicked: " + rMember);
   message.delete(0);
   reportschannel.send(Embed);
-  message.guild.member(rMember).kick(reason);
+  await message.guild.member(rMember).kick(reason);
 }
-
 module.exports.help = {
   name: "kick"
 }
