@@ -13,18 +13,10 @@ module.exports.run = async (bot, message, args) => {
   if (!reportschannel) {
       return message.reply("Sorry, but I could not find the reports channel.");
   }
-  let Embed = new Discord.RichEmbed()
-  .setDescription("Kick")
-  .setColor("#15f153")
-  .addField("Kicked User: " + rMember + " with ID: " + rMember.id)
-  .addField("Sent by: " + message.author)
-  .addField("Channel", message.channel)
-  .addField("Time", message.createdAt)
-  .addField("Reason", reason)
-
+  reportschannel.send(rMember + " has been kicked by: " + message.author + " with id: " + message.author.id);
+  
   message.author.send("You kicked: " + rMember);
   message.delete(0);
-  reportschannel.send(Embed);
   await message.guild.member(rMember).kick(reason);
 }
 module.exports.help = {
