@@ -13,10 +13,10 @@ module.exports.run = async (bot, message, args) => {
   if (!reportschannel) {
       return message.reply("Sorry, but I could not find the reports channel.");
   }
+  message.delete(0);
   reportschannel.send(rMember + " has been kicked by: " + message.author + " with id: " + message.author.id);
   reportschannel.send("Time: " + message.createdAt);
   message.author.send("You kicked: " + rMember + " from: " + message.server.name);
-  message.delete(0);
   await message.guild.member(rMember).kick(reason);
 }
 module.exports.help = {
