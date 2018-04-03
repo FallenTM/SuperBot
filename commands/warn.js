@@ -30,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
   if (!warnChannel) return message.reply("Sorry, but I cannot find the #warns channel.");
 
   warnChannel.send(Embed);
+  message.reply("That user has now been warned.");
 
   if (warns[user.id].warns == 2) {
     let muteR = message.guild.roles.find("name", "muted");
@@ -37,6 +38,11 @@ module.exports.run = async (bot, message, args) => {
     let muteTime = "30m";
     await (user.addRole(muteR.id));
     message.channel.send(user.name + " has been muted for: " + muteTime);
+
+    setTimeout(function() {
+      user.removeRole(muteR.id);
+      message.reply("That user has now been unmuted.");
+    }, ms(muteTime))
   }
   if (warns[user.id].warns == 4) {
     user.send("You have been kicked from the server: " + message.server);
