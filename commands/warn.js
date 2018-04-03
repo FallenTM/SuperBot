@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#fc6400")
   .addField("Warned user: ", user.name)
   .addField("Warned in: ", message.channel)
-  .addField("Number of Warns", warns[user.id].wars)
+  .addField("Number of Warns", warns[user.id].warns)
   .addField("Reason", reason);
 
   let warnChannel = message.guild.channels.find("name", "warns");
