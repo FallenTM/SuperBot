@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Help Command", "Gets all commands for this bot.")
     .addField("Report Command", "Report a user and send it to an admin.");
 
+    message.delete(0);
     message.reply("Help has been sent to your DM's");
     await message.author.send(embed);
   } else {
@@ -24,6 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("RemoveRole command", "Remove a role from a user.")
     .addField("Addrule Command", "Add a rule to the #rules channel");
 
+    message.delete(0);
     message.reply("Help has been sent to your DM's");
     await message.author.send(aembed);
   }
