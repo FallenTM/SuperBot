@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
   if (!message.member.hasPermission("MANAGE_MEMBERS")) {
-    let embed = new Discord.Embed()
+    let embed = new Discord.RichEmbed()
     .setDescription("User Help")
     .setColor("#15f153")
     .addField("Current commands", "!help and !report")
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     message.reply("Help has been sent to your DM's");
     await message.author.send(embed);
   } else {
-    let aembed = new Discord.Embed()
+    let aembed = new Discord.RichEmbed()
     .setDescription("Admin Help")
     .setColor("#15f153")
     .addField("Current commands", "!help, !report, !addrole, !clear, !kick, !removerole, !addrule")
@@ -23,7 +23,6 @@ module.exports.run = async (bot, message, args) => {
     .addField("Kick command", "Kick a person from the server")
     .addField("RemoveRole command", "Remove a role from a user.")
     .addField("Addrule Command", "Add a rule to the #rules channel");
-
 
     message.reply("Help has been sent to your DM's");
     await message.author.send(aembed);
