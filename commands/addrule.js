@@ -10,14 +10,10 @@ module.exports.run = async (bot, message, args) => {
     return;
   }
   let arg = args.join(" ").slice(22);
-  let embed = new Discord.RichEmbed();
-  if (!embed) {
-    message.reply("Sorry, but I could not find the embed. Please try again.")
-  }
-  embed.setDescription("Rules");
-  await embed.addField(arg);
-  ruleChannel.send(embed);
-  message.reply("Added rule to rules channel.");
+  let embed = new Discord.RichEmbed
+  .setDescription("Rules")
+  .addField("Rules:" + arg);
+  await ruleChannel.send(embed);
 }
 module.exports.help = {
   name: "addrule"
