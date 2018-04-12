@@ -35,7 +35,7 @@ bot.on("message", async message => {
 
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if (commandfile) commandfile.run(bot, message, args);
-  if (!commandfile) {
+  if (!prefix + commandfile) {
     message.reply("Sorry, I could not find the command you specified.");
     message.delete(0);
   }
